@@ -1,0 +1,3 @@
+C:/Users/evush/Desktop/Lab1ccp/cmake-build-debug/CMakeFiles/lab1ccp.dir
+C:/Users/evush/Desktop/Lab1ccp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/evush/Desktop/Lab1ccp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
