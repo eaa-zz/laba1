@@ -1,7 +1,3 @@
-//
-// Created by evush on 27.10.2024.
-//
-
 #ifndef LAB1CCP_KEEPER_H
 #define LAB1CCP_KEEPER_H
 
@@ -19,7 +15,7 @@ public:
 
     void add(Ship* ship);
     void remove(int index);
-    void print() const;
+    void show() const;
     void save(const string& filename);
     void load(const string& filename);
     void rename(int index);

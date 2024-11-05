@@ -1,8 +1,7 @@
-//
-// Created by evush on 27.10.2024.
-//
 #include "Keeper.h"
 #include "submarine.h"
+#include "Sailer.h"
+#include "Boat.h"
 using namespace std;
 Keeper::Keeper() : ships(nullptr), counter(0) {}
 
@@ -42,9 +41,9 @@ void Keeper::remove(int index) {
     --counter;
 }
 
-void Keeper::print() const {
+void Keeper::show() const {
     for (int i = 0; i < counter; ++i) {
-        ships[i]->Print();
+        ships[i]->show();
         cout << "-----------------------\n";
     }
 }
@@ -58,11 +57,14 @@ void Keeper::save(const string& filename) {
 
     for (int i = 0; i < counter; ++i) {
         if (dynamic_cast<Submarine*>(ships[i])) {
-            file << "[samolet]\n";
+            file << "[submarine]\n";
+        }else if (dynamic_cast<Sailer*>(ships[i])) {
+            file << "[sailer]\n";
+        }else if (dynamic_cast<Boat*>(ships[i])) {
+            file << "[boat]\n";
         }
-        ships[i]->Save(file);
+        ships[i]->save(file);
     }
-
     file.close();
     cout << "Saved.\n";
 }
@@ -78,11 +80,15 @@ void Keeper::load(const string& filename) {
     string line;
     while (getline(file, line)) {
         Ship* ship = nullptr;
-        if (line == "[submarine]")
+        if (line == "[submarine]"){
             ship = new Submarine();
-
+        }else if (line == "[saler]") {
+            ship = new Sailer();
+        } else if (line == "[boat]") {
+            ship = new Boat();
+        }
         if (ship) {
-            ship->Load(file);
+            ship->load(file);
             add(ship);
         }
     }
@@ -96,7 +102,7 @@ void Keeper::rename(int index){
         cerr << "Invalid index.\n";
         return;
     }
-    ships[index]->Menu();
-    ships[index]->Print();
+    ships[index]->menu();
+    ships[index]->show();
     cout << "-----------------------\n";
 }

@@ -1,7 +1,3 @@
-//
-// Created by evush on 27.10.2024.
-//
-
 #ifndef LAB1CCP_SHIP_H
 #define LAB1CCP_SHIP_H
 #include <iostream>
@@ -11,16 +7,26 @@ using namespace std;
 
 class Ship {
 public:
-    Ship()= default;
-    virtual ~Ship() = default;
+    Ship() : fullName("-") {}
+    Ship(const string& name) : fullName(name) {}
+    virtual ~Ship() {}
 
-    virtual void Print()  const = 0;
-    virtual void Save(ostream& os)   = 0;
-    virtual void Load(istream& is)  = 0;
-    virtual void Menu() = 0;
+    virtual void save(ofstream& file) = 0;
+    virtual void load(ifstream& file) = 0;
+    virtual void menu() = 0;
+    virtual void show() const {
+        cout << "Full Name: " << fullName << endl;
+    }
 
+    void setName(const string& name) {
+        fullName = name;
+    }
+
+    string getName() const {
+        return fullName;
+    }
 protected:
-
+    string fullName;
 };
 #endif //LAB1CCP_SHIP_H
 

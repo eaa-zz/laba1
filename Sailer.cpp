@@ -1,42 +1,42 @@
-#include "submarine.h"
+#include "Sailer.h"
 using namespace std;
-void Submarine::save(ofstream& file) {
+void Sailer::save(ofstream& file) {
     file << getName() << "\n";
+    file << getType() << "\n";
+    file << getTitle() << "\n";
+    file << getTarget() << "\n";
     file << getLen() << "\n";
-    file << getWidth() << "\n";
-    file << getCrew() << "\n";
-    file << getTime() << "\n";
     file << getSpeed() << "\n";
-    file << getArm() << "\n";
+    file << getCrew() << "\n";
 }
 
-void Submarine::load(ifstream& file) {
+void Sailer::load(ifstream& file) {
     getline(file, fullName);
+    getline(file, type);
+    setType(type);
+    getline(file, title);
+    setTitle(title);
+    getline(file, target);
+    setTarget(target);
     getline(file, length);
     setLen(length);
-    getline(file, width);
-    setWidth(width);
-    getline(file, crew);
-    setCrew(crew);
-    getline(file, time);
-    setTime(time);
     getline(file, speed);
     setSpeed(speed);
-    getline(file, arm);
-    setArm(arm);
+    getline(file, crew);
+    setCrew(crew);
 }
 
-void Submarine::menu() {
+void Sailer::menu() {
     int choice;
     do {
         cout << "1. Show\n";
         cout << "2. Change name\n";
-        cout << "3. Change length\n";
-        cout << "4. Change wigth\n";
-        cout << "5. Change crew\n";
-        cout << "6. Change time\n";
+        cout << "3. Change type\n";
+        cout << "4. Change title\n";
+        cout << "5. Change target\n";
+        cout << "6. Change length\n";
         cout << "7. Change speed\n";
-        cout << "8. Change arm\n";
+        cout << "8. Change crew\n";
         cout << "0. Exit\n";
         cin >> choice;
 
@@ -53,31 +53,31 @@ void Submarine::menu() {
             break;
         }
         case 3: {
+            cout << "Enter type: ";
+            cin.ignore();
+            getline(cin, type);
+            setType(type);
+            break;
+        }
+        case 4: {
+            cout << "Enter title: ";
+            cin.ignore();
+            getline(cin, title);
+            setTitle(title);
+            break;
+        }
+        case 5: {
+            cout << "Enter target: ";
+            cin.ignore();
+            getline(cin, target);
+            setTarget(target);
+            break;
+        }
+        case 6: {
             cout << "Enter length: ";
             cin.ignore();
             getline(cin, length);
             setLen(length);
-            break;
-        }
-        case 4: {
-            cout << "Enter wigth: ";
-            cin.ignore();
-            getline(cin, width);
-            setWidth(width);
-            break;
-        }
-        case 5: {
-            cout << "Enter crew: ";
-            cin.ignore();
-            getline(cin, crew);
-            setCrew(crew);
-            break;
-        }
-        case 6: {
-            cout << "Enter time: ";
-            cin.ignore();
-            getline(cin, time);
-            setTime(time);
             break;
         }
         case 7: {
@@ -88,23 +88,23 @@ void Submarine::menu() {
             break;
         }
         case 8: {
-            cout << "Enter arm: ";
+            cout << "Enter crew: ";
             cin.ignore();
-            getline(cin, arm);
-            setArm(arm);
+            getline(cin, crew);
+            setCrew(crew);
             break;
         }
         }
     } while (choice != 0);
 }
 
-void Submarine::show() const {
-    cout << "Submarine\n";
+void Sailer::show() const {
+    cout << "Sailer\n";
     cout << "Name: " << getName() << "\n";
+    cout << "Type: " << getType() << "\n";
+    cout << "Title: " << getTitle() << "\n";
+    cout << "Target: " << getTarget() << "\n";
     cout << "Length: " << getLen() << "\n";
-    cout << "Wigth: " << getWidth() << "\n";
-    cout << "Crew: " << getCrew() << "\n";
-    cout << "Time: " << getTime() << "\n";
     cout << "Speed: " << getSpeed() << "\n";
-    cout << "Arm: " << getArm() << "\n";
+    cout << "Crew: " << getCrew() << "\n";
 }

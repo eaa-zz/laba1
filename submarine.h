@@ -1,7 +1,3 @@
-//
-// Created by evush on 27.10.2024.
-//
-
 #ifndef LAB1CCP_SUBMARINE_H
 #define LAB1CCP_SUBMARINE_H
 
@@ -9,33 +5,70 @@
 #include <string>
 class Submarine: public Ship
 {
-public:
-    Submarine();
-    ~Submarine() override;
-    Submarine(const Submarine&);
-    void Print() const override;
-    void Save(ostream& os) override;
-    void Load (istream& is) override ;
-    void Menu() override;
-    [[nodiscard]] string GetLen() const;
-    string GetWidth() const;
-    string GetCrew() const;
-    string GetTime() const;
-    string GetSpeed() const;
-    string GetArm() const;
-    void SetLen(const string& sLen);
-    void SetWidth(const string& sWidth);
-    void SetCrew(const string& sCrew);
-    void SetTime(const string& sTime);
-    void SetSpeed(const string& sSpeed);
-    void SetArm(const string& sArm);
-
 private:
-    string g_sLen;
-    string g_sWidth;
-    string g_sCrew;
-    string g_sTime;
-    string g_sSpeed;
-    string g_sArm;
+    string length;
+    string width;
+    string crew;
+    string time;
+    string speed;
+    string arm;
+protected:
+    string fullLength;
+    string fullWidth;
+    string fullCrew;
+    string fullTime;
+    string fullSpeed;
+    string fullArm;
+public:
+    Submarine() : length(""), width(""), crew(""), time(""),  speed(""),  arm("") {}
+    Submarine(const string& name, const string& l, const string& w, const string& c, const string& t, const string& s, const string& a )
+        : Ship(name), fullLength(l), fullWidth(w), fullCrew(c), fullTime(t), fullSpeed(s), fullArm(a){}
+
+    void save(ofstream& file) override;
+    void load(ifstream& file) override;
+    void menu() override;
+    void show() const override;
+
+    void setLen(const string& length) {
+        fullLength = length;
+    }
+    string getLen() const {
+        return fullLength;
+    }
+
+    void setWidth(const string& width) {
+        fullWidth = width;
+    }
+    string getWidth() const {
+        return fullWidth;
+    }
+
+    void setCrew(const string& crew) {
+        fullCrew = crew;
+    }
+    string getCrew() const {
+        return fullCrew;
+    }
+
+    void setTime(const string& time) {
+        fullTime = time;
+    }
+    string getTime() const {
+        return fullTime;
+    }
+
+    void setSpeed(const string& speed) {
+        fullSpeed = speed;
+    }
+    string getSpeed() const {
+        return fullSpeed;
+    }
+
+    void setArm(const string& arm) {
+        fullArm = arm;
+    }
+    string getArm() const {
+        return fullArm;
+    }
 };
 #endif //LAB1CCP_SUBMARINE_H
