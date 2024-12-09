@@ -82,7 +82,7 @@ void Keeper::load(const string& filename) {
         Ship* ship = nullptr;
         if (line == "[submarine]"){
             ship = new Submarine();
-        }else if (line == "[saler]") {
+        }else if (line == "[sailer]") {
             ship = new Sailer();
         } else if (line == "[boat]") {
             ship = new Boat();

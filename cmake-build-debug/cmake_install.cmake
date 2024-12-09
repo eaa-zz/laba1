@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/evush/Desktop/Lab1ccp
+# Install script for directory: C:/Users/evush/OneDrive/Desktop/Lab1ccp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/evush/Desktop/Lab1ccp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/evush/OneDrive/Desktop/Lab1ccp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -88,7 +88,7 @@ void Boat::menu() {
 }
 
 void Boat::show() const {
-    cout << "Submarine\n";
+    cout << "Boat\n";
     cout << "Name: " << getName() << "\n";
     cout << "Target: " << getTarget() << "\n";
     cout << "Material: " << getMaterial() << "\n";
